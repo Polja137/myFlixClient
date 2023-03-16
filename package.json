@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "client to my API",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node index.jsx",
+    "dev":"nodemon index.jsx"
   },
   "author": "",
   "license": "ISC",
