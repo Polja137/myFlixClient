@@ -15,7 +15,7 @@ export const MainView = () => {
       id: 2,
       title: "Intrestellar",
       image:
-        "https://images.app.goo.gl/eQZjsXZKcL4YW5xq5",
+        "https://images.app.goo.gl/Hfi87fUHSkmeQJ7N8",
       year: 2014
     },
     {
