@@ -3,29 +3,21 @@ import { MovieCard } from "../MovieCard/movie-card";
 import { MovieView } from "../MovieView/movie-view";
 
 export const MainView = () => {
-  const [movies, setMovies] = useState([
-    {
-      id: 1,
-      title: "Tenet",
-      image:
-      "https://www.imdb.com/title/tt6723592/mediaviewer/rm3840584961/?ref_=tt_ov_i",
-      year:2020
-    },
-    {
-      id: 2,
-      title: "Intrestellar",
-      image:
-        "https://images.app.goo.gl/Hfi87fUHSkmeQJ7N8",
-      year: 2014
-    },
-    {
-      id: 3,
-      title: "Dunkirk",
-      image:
-        "https://images.app.goo.gl/nJYPHXyzbDDhhJSq6",
-      year: 2004
-    }
-  ]);
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    fetch("https://radiant-woodland-98669.herokuapp.com/movies")
+      .then((response) => response.json())
+      .then((data) => {
+        const moviesFromApi = data.docs.map((doc) => {
+          return {
+            title: doc.title,
+            author: doc.director.name
+          };
+        });
+        setMovies(moviesFromApi);
+      });
+  }, []);
 
   const [selectedMovie, setSelectedMovie] = useState(null);
 
