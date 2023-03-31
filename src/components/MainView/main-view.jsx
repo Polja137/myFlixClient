@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MovieCard } from "../MovieCard/movie-card";
 import { MovieView } from "../MovieView/movie-view";
 
@@ -9,12 +9,14 @@ export const MainView = () => {
     fetch("https://radiant-woodland-98669.herokuapp.com/movies")
       .then((response) => response.json())
       .then((data) => {
-        const moviesFromApi = data.docs.map((doc) => {
+        console.log(data)
+        const moviesFromApi = data.map((doc) => {
           return {
-            title: doc.title,
-            author: doc.director.name
+            title: doc.Title,
+            author: doc.Director.Name
           };
         });
+        console.log("Movies from API", moviesFromApi)
         setMovies(moviesFromApi);
       });
   }, []);
