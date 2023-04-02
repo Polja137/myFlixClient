@@ -1,9 +1,18 @@
 import { useState, useEffect } from "react";
 import { MovieCard } from "../MovieCard/movie-card";
 import { MovieView } from "../MovieView/movie-view";
+import { LoginView } from "../LoginView/login-view";
+//import { SignupView } from "../SignupView/signup-view";
 
 export const MainView = () => {
+  //const storedUser = JSON.parse(localStorage.getItem("user"));
+  const storedToken = localStorage.getItem("token");
   const [movies, setMovies] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [user, setUser] = useState(null);
+  const [token, setToken] = useState(storedToken? storedToken : null);
+  const [loading, setLoading] = useState(false);
+
 
   useEffect(() => {
     fetch("https://radiant-woodland-98669.herokuapp.com/movies")
@@ -21,7 +30,9 @@ export const MainView = () => {
       });
   }, []);
 
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  if (!user) {
+    return <LoginView onLoggedIn={(user) => setUser(user)} />;
+  }
 
   if (selectedMovie) {
     return (
