@@ -1,7 +1,5 @@
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-
+import {Form,Button,Container, Row, Col, CardGroup,Card} from "react-bootstrap";
 
 
 export const LoginView = ({onLoggedIn}) => {
@@ -15,9 +13,7 @@ export const LoginView = ({onLoggedIn}) => {
         const data = {
             Username: username,
             Password: password
-          };
-
-        
+          };    
 
     fetch("https://radiant-woodland-98669.herokuapp.com/login", { 
     method: "POST",
@@ -31,9 +27,7 @@ export const LoginView = ({onLoggedIn}) => {
         localStorage.setItem("user", JSON.stringify(data.user));
         localStorage.setItem("token", data.token);
         onLoggedIn(data.user, data.token);
-      } else {
-        alert("No such user");
-      }
+      } else {alert("No such user");}
     })
     .catch((e) => {
       alert("Something went wrong");
@@ -42,7 +36,13 @@ export const LoginView = ({onLoggedIn}) => {
 
     //login form with submit button
     return (
-        <Form onSubmit={handleSubmit}>
+      <Container>
+      <Row>
+      <Col>
+      <CardGroup>
+        <Card>
+            <Card.Header>Wecome to Login</Card.Header>
+          <Form>
           <Form.Group controlId="formUsername">
             <Form.Label>Username:</Form.Label>
             <Form.Control
@@ -53,7 +53,6 @@ export const LoginView = ({onLoggedIn}) => {
               minLength="3" 
             />
           </Form.Group>
-    
           <Form.Group controlId="formPassword">
             <Form.Label>Password:</Form.Label>
             <Form.Control
@@ -66,7 +65,12 @@ export const LoginView = ({onLoggedIn}) => {
           <Button variant="primary" type="submit">
             Submit
           </Button>
-        </Form>
+      </Form>
+      </Card>
+      </CardGroup>
+      </Col>
+      </Row>
+      </Container>
       );
   };
 
