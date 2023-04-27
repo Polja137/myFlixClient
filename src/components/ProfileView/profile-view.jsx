@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card, Col, Form, Button } from "react-bootstrap";
+import { Card, Col, Form, Button, Row } from "react-bootstrap";
 import { MovieCard } from "../MovieCard/movie-card";
 
 export const ProfileView = ({ user, token, movies, onLoggedOut, updateUser }) => {
@@ -73,7 +73,8 @@ export const ProfileView = ({ user, token, movies, onLoggedOut, updateUser }) =>
 
     return (
         <>
-            <Col md={12}>           
+        <Row>
+            <Col md={6}>           
                 <Card className="mt-2 mb-3">
                     <Card.Body>
                         <Card.Title >Your info</Card.Title>
@@ -140,14 +141,20 @@ export const ProfileView = ({ user, token, movies, onLoggedOut, updateUser }) =>
                     </Card.Body>
                 </Card>
             </Col>
+            </Row>
+            <Row>
             <Col md={12}>
                 <h3 className="mt-3 mb-3 text-light">Your favorite movies:</h3>
+
             </Col>
             {favoriteMovies.map(movie => (
                 <Col className="mb-4" key={movie.id} xl={2} lg={3} md={4} xs={6}>
                     <MovieCard movie={movie} />
                 </Col>
+           
+
             ))}
+            </Row>
         </>
     );
 }
