@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { Card, Col, Form, Button } from "react-bootstrap";
-import { MovieCard } from "../movie-card/movie-card";
+import { MovieCard } from "../MovieCard/movie-card";
 
 export const ProfileView = ({ user, token, movies, onLoggedOut, updateUser }) => {
 
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [email, setEmail] = useState("");
-    const [birthdate, setBirthdate] = useState("");
+    console.log("User ", user)
+    console.log("Movie ", movies)
 
-    let favoriteMovies = movies.filter(movie => user.favoriteMovieList.includes(movie.id));
+    const [username, setUsername] = useState(user.Username);
+    const [password, setPassword] = useState(user.Password);
+    const [email, setEmail] = useState(user.Email);
+    const [birthdate, setBirthdate] = useState(user.Birthday);
+
+    let favoriteMovies = movies.filter(movie => user.FavoriteMovies.includes(movie.id));
+
     
     const handleSubmit = event => {
         event.preventDefault();
@@ -21,7 +25,7 @@ export const ProfileView = ({ user, token, movies, onLoggedOut, updateUser }) =>
             birthdate
         }
 
-        fetch(`https://mycinema.herokuapp.com/users/${user.Username}`, {
+        fetch(`https://radiant-woodland-98669.herokuapp.com/users/${user.Username}`, {
             method: "PUT",
             body: JSON.stringify(data),
             headers: {
@@ -49,8 +53,7 @@ export const ProfileView = ({ user, token, movies, onLoggedOut, updateUser }) =>
     }
 
     const deleteAccount = () => {
-        console.log("doin")
-        fetch(`https://mycinema.herokuapp.com/users/${user.Username}`, {
+        fetch(`https://radiant-woodland-98669.herokuapp.com/users/${user.Username}`, {
             method: "DELETE",
             headers: { Authorization: `Bearer ${token}` }
         })
@@ -67,11 +70,10 @@ export const ProfileView = ({ user, token, movies, onLoggedOut, updateUser }) =>
         });
     }
 
-   
 
     return (
         <>
-            <Col md={6}>           
+            <Col md={12}>           
                 <Card className="mt-2 mb-3">
                     <Card.Body>
                         <Card.Title >Your info</Card.Title>
