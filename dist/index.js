@@ -47181,7 +47181,7 @@ const ProfileView = ({ user , token , movies , onLoggedOut , updateUser  })=>{
     const [password, setPassword] = (0, _react.useState)(user.Password);
     const [email, setEmail] = (0, _react.useState)(user.Email);
     const [birthdate, setBirthdate] = (0, _react.useState)(user.Birthday);
-    let favoriteMovies = movies.filter((movie)=>user.FavoriteMovies.includes(movie._id));
+    let favoriteMovies = movies.filter((movie)=>user.FavoriteMovies.includes(movie.id));
     const handleSubmit = (event)=>{
         event.preventDefault();
         const data = {
@@ -47468,7 +47468,7 @@ const ProfileView = ({ user , token , movies , onLoggedOut , updateUser  })=>{
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                         md: 12,
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                            className: "mt-3 mb-3 text-dark",
+                            className: "mt-3 mb-3 text-light",
                             children: "Your favorite movies:"
                         }, void 0, false, {
                             fileName: "src/components/ProfileView/profile-view.jsx",
@@ -47508,4 +47508,4 @@ $RefreshReg$(_c, "ProfileView");
 }
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","../MovieCard/movie-card":"dg3Ls","@parcel/transformer-js/src/esmodule-helpers.js":"cXI34","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9qWW7"}]},["brD7F","csyzO","d8Dch"], "d8Dch", "parcelRequire6ba1")
 
-//# sourceMappingURL=index.b4b6dfad.js.map
+//# sourceMappingURL=index.js.map

@@ -12,7 +12,7 @@ export const ProfileView = ({ user, token, movies, onLoggedOut, updateUser }) =>
     const [email, setEmail] = useState(user.Email);
     const [birthdate, setBirthdate] = useState(user.Birthday);
 
-    let favoriteMovies = movies.filter(movie => user.FavoriteMovies.includes(movie.id));
+    let favoriteMovies = movies.filter(movie => user.FavoriteMovies.includes(movie._id));
 
     
     const handleSubmit = event => {
@@ -144,7 +144,7 @@ export const ProfileView = ({ user, token, movies, onLoggedOut, updateUser }) =>
             </Row>
             <Row>
             <Col md={12}>
-                <h3 className="mt-3 mb-3 text-light">Your favorite movies:</h3>
+                <h3 className="mt-3 mb-3 text-dark">Your favorite movies:</h3>
             </Col>
             {favoriteMovies.map(movie => (
            
