@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Button, Card } from "react-bootstrap";
 import {Link} from "react-router-dom";
-//import "./movie-card.scss"
+import "./movie-card.scss";
 
 export const MovieCard = ({ movie}) => {
 

@@ -71,7 +71,7 @@ const removeFavorite = () => {
     return (
       <>
             <Col md={12}>
-                <div className="text-light">
+                <div className="text-dark">
                     <img className="float-start me-3 mb-2" src={movie.ImagePath} alt="Movie Cover Image" />
                     <h2>{movie.Title}</h2>
                     <p>{movie.Description}</p>

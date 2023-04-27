@@ -66,9 +66,7 @@ export const MainView = () => {
                         <SignupView />
                       </Col>
                     )}
-                  </>
-    
-                }
+                  </>}
               />
               <Route
                 path="/login"

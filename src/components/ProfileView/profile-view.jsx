@@ -145,15 +145,12 @@ export const ProfileView = ({ user, token, movies, onLoggedOut, updateUser }) =>
             <Row>
             <Col md={12}>
                 <h3 className="mt-3 mb-3 text-light">Your favorite movies:</h3>
-
             </Col>
             {favoriteMovies.map(movie => (
-                <Col className="mb-4" key={movie.id} xl={2} lg={3} md={4} xs={6}>
-                    <MovieCard movie={movie} />
-                </Col>
            
-
-            ))}
+                <MovieCard movie={movie} />
+            
+             ))}
             </Row>
         </>
     );
