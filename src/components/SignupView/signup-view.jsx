@@ -9,7 +9,6 @@ export const SignupView = () => {
 
   // validation of user signup
   const handleSubmit = (event) => {
-
     event.preventDefault(); 
 
     const data = {
@@ -25,7 +24,7 @@ export const SignupView = () => {
     }).then((response) => {
       if (response.ok) {
         alert("Signup successful");
-        window.location.reload();
+        window.location.href = '/login';
       } else {
         alert("Signup failed");
       }
@@ -83,8 +82,7 @@ export const SignupView = () => {
             />
         </Form.Group>
 
-        <Button variant="primary" type="submit"> 
-            onClick={handleSubmit}
+        <Button variant="primary" type="submit" onClick={handleSubmit}> 
             Submit
         </Button>
         </Form>

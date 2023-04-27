@@ -26,7 +26,7 @@ export const LoginView = ({onLoggedIn}) => {
       if (data.user) {
         localStorage.setItem("user", JSON.stringify(data.user));
         localStorage.setItem("token", data.token);
-        onLoggedIn(data.user, data.token);
+        onLoggedIn(data.user, data.token); //props in mainview
       } else {alert("No such user");}
     })
     .catch((e) => {
@@ -42,7 +42,7 @@ export const LoginView = ({onLoggedIn}) => {
       <CardGroup>
         <Card>
             <Card.Header>Wecome to Login</Card.Header>
-          <Form>
+          <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formUsername">
             <Form.Label>Username:</Form.Label>
             <Form.Control

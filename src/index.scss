@@ -1,13 +1,16 @@
 $primary: SeaGreen;
 $body-bg: Honeydew;
 @import '~bootstrap/scss/bootstrap.scss';
+$textcolor:darkblue;
 
 $color: steelblue;
 
 .my-flix {
   color: $color;
+  text-color:$textcolor;
 }
 
 img {
-  width: 100%
+  width: 100%;
+  text-color:$textcolor;
 }
