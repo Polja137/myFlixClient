@@ -9,6 +9,7 @@ existing server-side code (REST API and database).
 ## Demo
 
 The deployed app can be viewed [here.](https://main--tubular-marzipan-b42ae3.netlify.app/login)
+Login with user test137 psw:1234567
 
 ## Description
 
